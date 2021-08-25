@@ -1,6 +1,7 @@
 package com.nimadugarov.testappsequenia.presentation.home.list.viewholder
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.request.RequestOptions
 import com.nimadugarov.testappsequenia.R
 import com.nimadugarov.testappsequenia.databinding.MovieItemBinding
@@ -23,8 +24,8 @@ class MovieItemViewHolder : ViewHolderVisitor {
             .load(viewModel.movieItem.posterUrl)
             .apply(
                 RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken_image)
+                    .placeholder(ContextCompat.getDrawable(itemView.context, R.drawable.loading_animation))
+                    .error(ContextCompat.getDrawable(itemView.context, R.drawable.ic_broken_image))
                     .centerInside()
             )
             .centerCrop()

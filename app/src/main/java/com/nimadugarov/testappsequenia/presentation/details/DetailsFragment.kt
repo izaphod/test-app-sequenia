@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.setupWithNavController
@@ -58,8 +60,8 @@ class DetailsFragment : MvpAppCompatFragment(R.layout.fragment_details), Details
             .load(args.movieItem.posterUrl)
             .apply(
                 RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken_image)
+                    .placeholder(ContextCompat.getDrawable(requireContext(), R.drawable.loading_animation))
+                    .error(ContextCompat.getDrawable(requireContext(), R.drawable.ic_broken_image))
                     .centerInside()
             )
             .centerCrop()
