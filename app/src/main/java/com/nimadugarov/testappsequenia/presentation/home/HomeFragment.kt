@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -61,11 +60,6 @@ class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), HomeView {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun setListHeader() {
-        presenter.genresHeader = getString(R.string.genres_header)
-        presenter.moviesHeader = getString(R.string.movies_header)
     }
 
     override fun submitItems(items: List<ItemViewModel>) {

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -42,8 +41,8 @@ class DetailsFragment : MvpAppCompatFragment(R.layout.fragment_details), Details
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.movieItem = args.movieItem
         binding.toolbarDetails.setupWithNavController(findNavController())
-        binding.toolbarDetails.title = args.movieItem.localizedName
     }
 
     override fun onDestroyView() {
@@ -51,29 +50,45 @@ class DetailsFragment : MvpAppCompatFragment(R.layout.fragment_details), Details
         _binding = null
     }
 
-    override fun showMovieDetails() {
-        var rating = getString(R.string.no_rating)
-        if (args.movieItem.rating != null) {
-            rating = getString(R.string.movie_rating, args.movieItem.rating.toString())
+    override fun setToolbarTitle(title: String) {
+        binding.toolbarDetails.title = title
+    }
+
+    override fun setMovieDetails(
+        name: String,
+        year: String,
+        rating: Double?,
+        description: String?
+    ) {
+        var movieRating = getString(R.string.no_rating)
+        var movieDescription = getString(R.string.no_description)
+        rating?.let { movieRating = getString(R.string.movie_rating, it.toString()) }
+        description?.let {
+            if (it.isNotBlank()) {
+                movieDescription = it
+            }
         }
+        binding.movieName.text = name
+        binding.movieYear.text = getString(R.string.movie_year, year)
+        binding.movieRating.text = movieRating
+        binding.movieDescription.text = movieDescription
+    }
+
+    override fun setMoviePoster(posterUrl: String?) {
         GlideApp.with(this)
-            .load(args.movieItem.posterUrl)
+            .load(posterUrl)
             .apply(
                 RequestOptions()
-                    .placeholder(ContextCompat.getDrawable(requireContext(), R.drawable.loading_animation))
+                    .placeholder(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.loading_animation
+                        )
+                    )
                     .error(ContextCompat.getDrawable(requireContext(), R.drawable.ic_broken_image))
                     .centerInside()
             )
             .centerCrop()
             .into(binding.moviePoster)
-        binding.movieName.text = args.movieItem.name
-        binding.movieYear.text = getString(R.string.movie_year, args.movieItem.year.toString())
-        binding.movieRating.text = rating
-        if (args.movieItem.description.isNullOrBlank()) {
-            binding.movieDescription.text = getString(R.string.no_description)
-        } else {
-            binding.movieDescription.text = args.movieItem.description
-        }
-
     }
 }

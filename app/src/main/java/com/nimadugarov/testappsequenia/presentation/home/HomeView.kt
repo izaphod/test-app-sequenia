@@ -9,9 +9,6 @@ import moxy.viewstate.strategy.StateStrategyType
 
 interface HomeView : MvpView {
 
-    @StateStrategyType(value = OneExecutionStateStrategy::class)
-    fun setListHeader()
-
     @StateStrategyType(value = AddToEndSingleStrategy::class)
     fun submitItems(items: List<ItemViewModel>)
 

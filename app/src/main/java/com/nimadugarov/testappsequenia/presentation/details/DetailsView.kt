@@ -7,5 +7,11 @@ import moxy.viewstate.strategy.StateStrategyType
 interface DetailsView : MvpView {
 
     @StateStrategyType(value = AddToEndSingleStrategy::class)
-    fun showMovieDetails()
+    fun setToolbarTitle(title: String)
+
+    @StateStrategyType(value = AddToEndSingleStrategy::class)
+    fun setMovieDetails(name: String, year: String, rating: Double?, description: String?)
+
+    @StateStrategyType(value = AddToEndSingleStrategy::class)
+    fun setMoviePoster(posterUrl: String?)
 }

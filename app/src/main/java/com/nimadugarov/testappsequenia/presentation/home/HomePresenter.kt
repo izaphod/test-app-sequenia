@@ -1,18 +1,24 @@
 package com.nimadugarov.testappsequenia.presentation.home
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.nimadugarov.testappsequenia.R
 import com.nimadugarov.testappsequenia.domain.model.Genre
 import com.nimadugarov.testappsequenia.domain.repository.MovieRepository
 import com.nimadugarov.testappsequenia.domain.repository.ResponseData
 import com.nimadugarov.testappsequenia.presentation.model.*
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.*
+import moxy.InjectViewState
 import moxy.MvpPresenter
 import javax.inject.Inject
 
+@InjectViewState
 class HomePresenter @Inject constructor(
-    private val repository: MovieRepository
+    private val repository: MovieRepository,
+    @ApplicationContext private val appContext: Context
 ) : MvpPresenter<HomeView>() {
 
     private var _state = MutableLiveData<State>()
@@ -21,9 +27,6 @@ class HomePresenter @Inject constructor(
     private var movies = mutableListOf<MovieItemViewModel>()
     private var genres = mutableSetOf<GenreItemViewModel>()
     private var defaultItemList = mutableListOf<ItemViewModel>()
-
-    var genresHeader = ""
-    var moviesHeader = ""
 
     private var currentSelectedGenre = -1
 
@@ -100,11 +103,10 @@ class HomePresenter @Inject constructor(
     }
 
     private fun createItemList(movieList: List<MovieItemViewModel>): MutableList<ItemViewModel> {
-        viewState.setListHeader()
         return mutableListOf<ItemViewModel>().apply {
-            add(HeaderItemViewModel(header = genresHeader))
+            add(HeaderItemViewModel(header = appContext.getString(R.string.genres_header)))
             addAll(genres)
-            add(HeaderItemViewModel(header = moviesHeader))
+            add(HeaderItemViewModel(header = appContext.getString(R.string.movies_header)))
             addAll(movieList)
         }
     }
