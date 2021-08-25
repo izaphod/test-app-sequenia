@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/movie_item_width"
-    android:layout_height="@dimen/movie_item_height"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/small_spacing"
     android:clickable="true"
     android:focusable="true"
@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/movie_poster"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/movie_item_height"
         tools:ignore="ContentDescription"
         tools:scaleType="fitXY"
         tools:src="@drawable/poster_img" />
