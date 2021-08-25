@@ -1,8 +1,5 @@
 package com.nimadugarov.testappsequenia.domain.model
 
-import androidx.annotation.Keep
-
-@Keep
 enum class Genre {
     DRAMA,
     FANTASY,
