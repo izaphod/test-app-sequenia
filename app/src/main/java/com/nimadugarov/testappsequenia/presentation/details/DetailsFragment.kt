@@ -14,21 +14,25 @@ import com.nimadugarov.testappsequenia.databinding.FragmentDetailsBinding
 import com.nimadugarov.testappsequenia.di.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
 import moxy.MvpAppCompatFragment
-import moxy.ktx.moxyPresenter
-import javax.inject.Inject
-import javax.inject.Provider
+import moxy.presenter.InjectPresenter
+import moxy.presenter.ProvidePresenter
 
 @AndroidEntryPoint
 class DetailsFragment : MvpAppCompatFragment(R.layout.fragment_details), DetailsView {
 
-    @Inject
-    lateinit var presenterProvider: Provider<DetailsPresenter>
-    private val presenter: DetailsPresenter by moxyPresenter { presenterProvider.get() }
+    @InjectPresenter
+    lateinit var presenter: DetailsPresenter
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 
     private val args: DetailsFragmentArgs by navArgs()
+
+    @ProvidePresenter
+    fun provideDetailsPresenter(): DetailsPresenter {
+        val movieItem = args.movieItem
+        return DetailsPresenter(movieItem)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

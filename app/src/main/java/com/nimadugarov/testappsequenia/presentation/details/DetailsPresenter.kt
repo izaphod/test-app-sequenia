@@ -1,13 +1,12 @@
 package com.nimadugarov.testappsequenia.presentation.details
 
+import android.util.Log
 import com.nimadugarov.testappsequenia.domain.model.MovieItem
 import moxy.InjectViewState
 import moxy.MvpPresenter
 
 @InjectViewState
-class DetailsPresenter : MvpPresenter<DetailsView>() {
-
-    var movieItem: MovieItem? = null
+class DetailsPresenter(var movieItem: MovieItem?) : MvpPresenter<DetailsView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -21,5 +20,11 @@ class DetailsPresenter : MvpPresenter<DetailsView>() {
                 description = it.description
             )
         }
+
+        Log.d(TAG, "onFirstViewAttach: ${movieItem?.name}")
+    }
+
+    companion object {
+        private const val TAG = "DetailsPresenter"
     }
 }
