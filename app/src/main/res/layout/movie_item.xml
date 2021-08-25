@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/movie_item_width"
+    android:layout_height="@dimen/movie_item_height"
+    android:layout_margin="@dimen/small_spacing"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/movie_item_corner_radius">
+
+    <ImageView
+        android:id="@+id/movie_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ContentDescription"
+        tools:scaleType="fitXY"
+        tools:src="@drawable/poster_img" />
+
+    <FrameLayout
+        android:id="@+id/movie_name_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/movie_item_text_bg_height"
+        android:layout_gravity="bottom"
+        android:alpha="0.5"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/movie_localized_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/movie_item_text_height"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/movie_item_text_margin"
+        android:layout_marginBottom="@dimen/movie_item_text_margin"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        tools:text="Форест Гамп" />
+
+</androidx.cardview.widget.CardView>

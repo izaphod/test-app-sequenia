@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Sequenia Test Task</string>
+
+    <!-- Fragment home start -->
+    <string name="home_label">Главная</string>
+    <string name="genres_header">Жанры</string>
+    <string name="movies_header">Фильмы</string>
+    <string name="error_header">Что-то пошло не так</string>
+    <string name="error_body">Возможно отсутствует соединение с сервером.\nПроверьте ваше соединение и попробуйте еще раз</string>
+    <string name="genre_drama">Драма</string>
+    <string name="genre_fantasy">Фэнтези</string>
+    <string name="genre_crime">Криминал</string>
+    <string name="genre_detective">Детектив</string>
+    <string name="genre_melodrama">Мелодрама</string>
+    <string name="genre_biography">Биография</string>
+    <string name="genre_comedy">Комедия</string>
+    <string name="genre_action">Боевик</string>
+    <string name="genre_musical">Мюзикл</string>
+    <string name="genre_adventure">Приключения</string>
+    <string name="genre_horror">Ужасы</string>
+    <!-- Fragment home end -->
+
+    <!-- Fragment details start -->
+    <string name="movie_year">Год: %s</string>
+    <string name="movie_rating">Рейтинг: %s</string>
+    <string name="movie_description">От лица главного героя Форреста Гампа, слабоумного безобидного
+        человека с благородным и открытым сердцем, рассказывается история его необыкновенной жизни.
+        Фантастическим образом превращается он в известного футболиста, героя войны, преуспевающего
+        бизнесмена. Он становится миллиардером, но остается таким же бесхитростным, глупым и добрым.
+        Форреста ждет постоянный успех во всем, а он любит девочку, с которой дружил в детстве,
+        но взаимность приходит слишком поздно.</string>
+    <string name="no_rating">Рейтинг: без рейтинга</string>
+    <string name="no_description">Описание отсутсвует</string>
+    <string name="refresh">Обновить</string>
+    <!-- Fragment details end -->
+</resources>

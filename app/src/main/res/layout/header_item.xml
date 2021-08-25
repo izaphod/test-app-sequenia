@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/small_spacing"
+    android:backgroundTint="@color/purple_700">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/small_spacing"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        tools:text="Фильмы" />
+
+</androidx.cardview.widget.CardView>
