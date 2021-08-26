@@ -3,8 +3,7 @@
     <dimen name="small_spacing">8dp</dimen>
     <dimen name="normal_spacing">16dp</dimen>
 
-    <dimen name="movie_item_width">165dp</dimen>
-    <dimen name="movie_item_height">244dp</dimen>
+    <dimen name="movie_item_height">240dp</dimen>
     <dimen name="movie_item_corner_radius">12dp</dimen>
     <dimen name="movie_item_text_height">32dp</dimen>
     <dimen name="movie_item_text_margin">4dp</dimen>
