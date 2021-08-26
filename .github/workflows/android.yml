@@ -35,12 +35,13 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'
     - name: Build debug APK
-      run: bash ./dradlew assemleDebug --stacktrace
+      run: ./dradlew assemleDebug
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: app
+        name: app-debug.apk
         path: app/build/outputs/apk/debug/app-debug.apk
       
     
